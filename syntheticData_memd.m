@@ -16,16 +16,16 @@ save_path = strcat(pwd,'\figs\'); % path where you want to save your figures
 % -------------------------------------------------------------------------------------------
 
 % define time vector
-fs = 1000;               % sampling frequency (samples per second/Hz) 
+fs = 500;                % sampling frequency (samples per second/Hz) 
 dt = 1/fs;               % seconds per sample 
 stopTime = 5;            % length of signal in seconds 
 t = (0:dt:stopTime-dt)'; % time vector in seconds 
 stopTime_plot = 2;       % limit time axis for improved visualization 
 
 % frequencies of all three signals
-F_1 = 300;               % Hz
-F_2 = 120;               % Hz
-F_3 = 50;                % Hz
+F_1 = 50;                % Hz
+F_2 = 20;                % Hz
+F_3 = 5;                 % Hz
 
 % amplitudes of all signals
 A_1 = 4;
@@ -33,9 +33,9 @@ A_2 = 5;
 A_3 = 3;
 
 % data, i.e., all three signals 
-data_1 = A_1 + A_1*sin(F_1*t) + A_1*sin(F_2*t);
-data_2 =       A_2*sin(F_1*t) + A_2*sin(F_3*t);
-data_3 = A_3 + A_3*sin(F_1*t) + A_3*sin(F_2*t) + A_3*sin(F_3*t);
+data_1 = A_1 + A_1*sin(2*pi*F_1*t) + A_1*sin(2*pi*F_2*t);
+data_2 =       A_2*sin(2*pi*F_1*t) + A_2*sin(2*pi*F_3*t);
+data_3 = A_3 + A_3*sin(2*pi*F_1*t) + A_3*sin(2*pi*F_2*t) + A_3*sin(2*pi*F_3*t);
 
 data_combined = [data_1,data_2,data_3];
 
@@ -86,9 +86,9 @@ ax.FontSize = 16;
 % signal 3
 nexttile
 % fake plot of signal 1 and 2 outside the domain for legend
-plot(t,400.*ones(length(t),1),'color',blue);
+plot(t,400.*ones(length(t),1),'color',blue,'LineWidth',2);
 hold on
-plot(t,400.*ones(length(t),1),'color',orange);
+plot(t,400.*ones(length(t),1),'color',orange,'LineWidth',2);
 % third signal
 plot(t,data_3,'color',green,'LineWidth',2);
 xlabel('$t$','interpreter','latex');
