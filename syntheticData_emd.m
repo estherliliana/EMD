@@ -45,7 +45,7 @@ saveas(gcf,strcat(save_path,'inputData.png'));
 % -------------------------------------------------------------------------------------------
 
 % dimension of imfs: [time, modes]
-imfs = emd(data);  
+[imfs,res] = emd(data);  
 
 % -------------------------------------------------------------------------------------------
 % plot IMFs
@@ -53,7 +53,7 @@ imfs = emd(data);
 
 figure
 set(gcf,'color','w','Units','normalized','Position', [0.1, 0.15, 0.8, 0.5]);
-tiledlayout(size(imfs,2),1);
+tiledlayout(size(imfs,2)+1,1);
 
 for i =1:size(imfs,2)  
     nexttile
@@ -64,5 +64,13 @@ for i =1:size(imfs,2)
     ax = gca;
     ax.FontSize = 12; 
 end
+
+nexttile
+plot(t,res,'LineWidth',1.5)
+title('residual','interpreter','latex')
+xlabel('$t$','interpreter','latex');
+xlim([0 stopTime_plot])
+ax = gca;
+ax.FontSize = 12; 
     
 saveas(gcf,strcat(save_path,'imfs_emd.png'));
