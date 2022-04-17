@@ -104,21 +104,6 @@ legend boxoff
 saveas(gcf,strcat(save_path,'inputData.png'));
 
 % -------------------------------------------------------------------------------------------
-% plot as 3D visualization
-% -------------------------------------------------------------------------------------------
-
-figure
-plot3(data_1,data_2,data_3,'color','k','LineWidth',1.5)
-xlabel('$x$','interpreter','latex');
-ylabel('$y$','interpreter','latex');
-zlabel('$z$','interpreter','latex');
-ax = gca;
-ax.FontSize = 16; 
-axis equal
-
-saveas(gcf,strcat(save_path,'inputData_3Dview.png'));
-
-% -------------------------------------------------------------------------------------------
 % apply MEMD
 % -------------------------------------------------------------------------------------------
 
