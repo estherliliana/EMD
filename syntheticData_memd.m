@@ -247,7 +247,7 @@ for j = 1:3
     nexttile
     plot(t,squeeze(imfs_3(:,j)),'color',green,'LineWidth',1.5)
     if j == 1
-        ylabel('$g_1(t)$','interpreter','latex');
+        ylabel('$g_3(t)$','interpreter','latex');
     end  
     xlabel('$t$','interpreter','latex')
     xlim([0 stopTime_plot])
