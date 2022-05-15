@@ -50,6 +50,7 @@ k = 64;                        % projection directions
 stopCrit = [0.075 0.75 0.075]; % stopping criteria
 
 % noise parameters (number of noise channels is progressively increased)
+rng('default')  % ensure reproducability
 var_WGN = 0.05; % proportion of data variance that is taken as noise variance
 
 % -------------------------------------------------------------------------------------------
